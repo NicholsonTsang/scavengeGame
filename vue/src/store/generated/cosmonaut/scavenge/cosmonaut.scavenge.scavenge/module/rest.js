@@ -130,12 +130,41 @@ export class HttpClient {
     }
 }
 /**
- * @title scavenge/genesis.proto
+ * @title scavenge/commit.proto
  * @version version not set
  */
 export class Api extends HttpClient {
     constructor() {
         super(...arguments);
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryCommitAll
+         * @summary Queries a list of commit items.
+         * @request GET:/cosmonaut/scavenge/scavenge/commit
+         */
+        this.queryCommitAll = (query, params = {}) => this.request({
+            path: `/cosmonaut/scavenge/scavenge/commit`,
+            method: "GET",
+            query: query,
+            format: "json",
+            ...params,
+        });
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryCommit
+         * @summary Queries a commit by index.
+         * @request GET:/cosmonaut/scavenge/scavenge/commit/{index}
+         */
+        this.queryCommit = (index, params = {}) => this.request({
+            path: `/cosmonaut/scavenge/scavenge/commit/${index}`,
+            method: "GET",
+            format: "json",
+            ...params,
+        });
         /**
          * No description
          *

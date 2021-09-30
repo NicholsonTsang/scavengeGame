@@ -1,9 +1,12 @@
+import { Commit } from '../scavenge/commit';
 import { Scavenge } from '../scavenge/scavenge';
 import { Writer, Reader } from 'protobufjs/minimal';
 export declare const protobufPackage = "cosmonaut.scavenge.scavenge";
 /** GenesisState defines the scavenge module's genesis state. */
 export interface GenesisState {
     /** this line is used by starport scaffolding # genesis/proto/state */
+    commitList: Commit[];
+    /** this line is used by starport scaffolding # genesis/proto/stateField */
     scavengeList: Scavenge[];
 }
 export declare const GenesisState: {

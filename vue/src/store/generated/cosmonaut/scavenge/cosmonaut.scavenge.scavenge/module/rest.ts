@@ -20,11 +20,33 @@ export interface RpcStatus {
   details?: ProtobufAny[];
 }
 
+export interface ScavengeCommit {
+  creator?: string;
+  index?: string;
+  solutionHash?: string;
+  solutionScavengerHash?: string;
+}
+
 export type ScavengeMsgCommitSolutionResponse = object;
 
 export type ScavengeMsgRevealSolutionResponse = object;
 
 export type ScavengeMsgSubmitScavengeResponse = object;
+
+export interface ScavengeQueryAllCommitResponse {
+  Commit?: ScavengeCommit[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
+}
 
 export interface ScavengeQueryAllScavengeResponse {
   Scavenge?: ScavengeScavenge[];
@@ -39,6 +61,10 @@ export interface ScavengeQueryAllScavengeResponse {
    *  }
    */
   pagination?: V1Beta1PageResponse;
+}
+
+export interface ScavengeQueryGetCommitResponse {
+  Commit?: ScavengeCommit;
 }
 
 export interface ScavengeQueryGetScavengeResponse {
@@ -303,10 +329,51 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title scavenge/genesis.proto
+ * @title scavenge/commit.proto
  * @version version not set
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryCommitAll
+   * @summary Queries a list of commit items.
+   * @request GET:/cosmonaut/scavenge/scavenge/commit
+   */
+  queryCommitAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.countTotal"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<ScavengeQueryAllCommitResponse, RpcStatus>({
+      path: `/cosmonaut/scavenge/scavenge/commit`,
+      method: "GET",
+      query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryCommit
+   * @summary Queries a commit by index.
+   * @request GET:/cosmonaut/scavenge/scavenge/commit/{index}
+   */
+  queryCommit = (index: string, params: RequestParams = {}) =>
+    this.request<ScavengeQueryGetCommitResponse, RpcStatus>({
+      path: `/cosmonaut/scavenge/scavenge/commit/${index}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
   /**
    * No description
    *

@@ -28,3 +28,7 @@ func KeyPrefix(p string) []byte {
 const (
 	ScavengeKey = "Scavenge-value-"
 )
+
+const (
+	CommitKey = "Commit-value-"
+)

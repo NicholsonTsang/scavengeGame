@@ -30,6 +30,190 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // this line is used by starport scaffolding # 3
+type QueryGetCommitRequest struct {
+	Index string `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
+}
+
+func (m *QueryGetCommitRequest) Reset()         { *m = QueryGetCommitRequest{} }
+func (m *QueryGetCommitRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetCommitRequest) ProtoMessage()    {}
+func (*QueryGetCommitRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_761e1fe4c505c12c, []int{0}
+}
+func (m *QueryGetCommitRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetCommitRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetCommitRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetCommitRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetCommitRequest.Merge(m, src)
+}
+func (m *QueryGetCommitRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetCommitRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetCommitRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetCommitRequest proto.InternalMessageInfo
+
+func (m *QueryGetCommitRequest) GetIndex() string {
+	if m != nil {
+		return m.Index
+	}
+	return ""
+}
+
+type QueryGetCommitResponse struct {
+	Commit *Commit `protobuf:"bytes,1,opt,name=Commit,proto3" json:"Commit,omitempty"`
+}
+
+func (m *QueryGetCommitResponse) Reset()         { *m = QueryGetCommitResponse{} }
+func (m *QueryGetCommitResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetCommitResponse) ProtoMessage()    {}
+func (*QueryGetCommitResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_761e1fe4c505c12c, []int{1}
+}
+func (m *QueryGetCommitResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetCommitResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetCommitResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetCommitResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetCommitResponse.Merge(m, src)
+}
+func (m *QueryGetCommitResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetCommitResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetCommitResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetCommitResponse proto.InternalMessageInfo
+
+func (m *QueryGetCommitResponse) GetCommit() *Commit {
+	if m != nil {
+		return m.Commit
+	}
+	return nil
+}
+
+type QueryAllCommitRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllCommitRequest) Reset()         { *m = QueryAllCommitRequest{} }
+func (m *QueryAllCommitRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllCommitRequest) ProtoMessage()    {}
+func (*QueryAllCommitRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_761e1fe4c505c12c, []int{2}
+}
+func (m *QueryAllCommitRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllCommitRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllCommitRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllCommitRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllCommitRequest.Merge(m, src)
+}
+func (m *QueryAllCommitRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllCommitRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllCommitRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllCommitRequest proto.InternalMessageInfo
+
+func (m *QueryAllCommitRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllCommitResponse struct {
+	Commit     []*Commit           `protobuf:"bytes,1,rep,name=Commit,proto3" json:"Commit,omitempty"`
+	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllCommitResponse) Reset()         { *m = QueryAllCommitResponse{} }
+func (m *QueryAllCommitResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllCommitResponse) ProtoMessage()    {}
+func (*QueryAllCommitResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_761e1fe4c505c12c, []int{3}
+}
+func (m *QueryAllCommitResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllCommitResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllCommitResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllCommitResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllCommitResponse.Merge(m, src)
+}
+func (m *QueryAllCommitResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllCommitResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllCommitResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllCommitResponse proto.InternalMessageInfo
+
+func (m *QueryAllCommitResponse) GetCommit() []*Commit {
+	if m != nil {
+		return m.Commit
+	}
+	return nil
+}
+
+func (m *QueryAllCommitResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 type QueryGetScavengeRequest struct {
 	Index string `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
 }
@@ -38,7 +222,7 @@ func (m *QueryGetScavengeRequest) Reset()         { *m = QueryGetScavengeRequest
 func (m *QueryGetScavengeRequest) String() string { return proto.CompactTextString(m) }
 func (*QueryGetScavengeRequest) ProtoMessage()    {}
 func (*QueryGetScavengeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_761e1fe4c505c12c, []int{0}
+	return fileDescriptor_761e1fe4c505c12c, []int{4}
 }
 func (m *QueryGetScavengeRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -82,7 +266,7 @@ func (m *QueryGetScavengeResponse) Reset()         { *m = QueryGetScavengeRespon
 func (m *QueryGetScavengeResponse) String() string { return proto.CompactTextString(m) }
 func (*QueryGetScavengeResponse) ProtoMessage()    {}
 func (*QueryGetScavengeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_761e1fe4c505c12c, []int{1}
+	return fileDescriptor_761e1fe4c505c12c, []int{5}
 }
 func (m *QueryGetScavengeResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -126,7 +310,7 @@ func (m *QueryAllScavengeRequest) Reset()         { *m = QueryAllScavengeRequest
 func (m *QueryAllScavengeRequest) String() string { return proto.CompactTextString(m) }
 func (*QueryAllScavengeRequest) ProtoMessage()    {}
 func (*QueryAllScavengeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_761e1fe4c505c12c, []int{2}
+	return fileDescriptor_761e1fe4c505c12c, []int{6}
 }
 func (m *QueryAllScavengeRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -171,7 +355,7 @@ func (m *QueryAllScavengeResponse) Reset()         { *m = QueryAllScavengeRespon
 func (m *QueryAllScavengeResponse) String() string { return proto.CompactTextString(m) }
 func (*QueryAllScavengeResponse) ProtoMessage()    {}
 func (*QueryAllScavengeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_761e1fe4c505c12c, []int{3}
+	return fileDescriptor_761e1fe4c505c12c, []int{7}
 }
 func (m *QueryAllScavengeResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -215,6 +399,10 @@ func (m *QueryAllScavengeResponse) GetPagination() *query.PageResponse {
 }
 
 func init() {
+	proto.RegisterType((*QueryGetCommitRequest)(nil), "cosmonaut.scavenge.scavenge.QueryGetCommitRequest")
+	proto.RegisterType((*QueryGetCommitResponse)(nil), "cosmonaut.scavenge.scavenge.QueryGetCommitResponse")
+	proto.RegisterType((*QueryAllCommitRequest)(nil), "cosmonaut.scavenge.scavenge.QueryAllCommitRequest")
+	proto.RegisterType((*QueryAllCommitResponse)(nil), "cosmonaut.scavenge.scavenge.QueryAllCommitResponse")
 	proto.RegisterType((*QueryGetScavengeRequest)(nil), "cosmonaut.scavenge.scavenge.QueryGetScavengeRequest")
 	proto.RegisterType((*QueryGetScavengeResponse)(nil), "cosmonaut.scavenge.scavenge.QueryGetScavengeResponse")
 	proto.RegisterType((*QueryAllScavengeRequest)(nil), "cosmonaut.scavenge.scavenge.QueryAllScavengeRequest")
@@ -224,32 +412,40 @@ func init() {
 func init() { proto.RegisterFile("scavenge/query.proto", fileDescriptor_761e1fe4c505c12c) }
 
 var fileDescriptor_761e1fe4c505c12c = []byte{
-	// 394 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x93, 0x41, 0x4b, 0x02, 0x41,
-	0x14, 0xc7, 0x1d, 0xc3, 0xa8, 0xf1, 0x36, 0x08, 0x8a, 0xc5, 0x12, 0x0b, 0x66, 0x04, 0xce, 0xa0,
-	0xe5, 0x07, 0xb0, 0x43, 0x76, 0x2c, 0xbb, 0x05, 0x1d, 0x66, 0x6d, 0xd8, 0x16, 0xd6, 0x99, 0xd5,
-	0x99, 0x15, 0x25, 0xba, 0xf4, 0x09, 0x82, 0xbe, 0x43, 0xd0, 0xa5, 0xcf, 0xd1, 0x51, 0xe8, 0xd2,
-	0x31, 0xd4, 0x0f, 0x12, 0xce, 0xae, 0xbb, 0x9a, 0x66, 0xd6, 0xed, 0xed, 0xbe, 0xf9, 0xff, 0xdf,
-	0xef, 0xbd, 0x37, 0x03, 0x33, 0xb2, 0x49, 0xbb, 0x8c, 0xdb, 0x8c, 0xb4, 0x7d, 0xd6, 0xe9, 0x63,
-	0xaf, 0x23, 0x94, 0x40, 0x3b, 0x4d, 0x21, 0x5b, 0x82, 0x53, 0x5f, 0xe1, 0x69, 0x3e, 0x0a, 0xf2,
-	0xbb, 0xb6, 0x10, 0xb6, 0xcb, 0x08, 0xf5, 0x1c, 0x42, 0x39, 0x17, 0x8a, 0x2a, 0x47, 0x70, 0x19,
-	0x48, 0xf3, 0x87, 0x5a, 0x2a, 0x89, 0x45, 0x65, 0xe8, 0x49, 0xba, 0x65, 0x8b, 0x29, 0x5a, 0x26,
-	0x1e, 0xb5, 0x1d, 0xae, 0x0f, 0x87, 0x67, 0xb3, 0x51, 0xf1, 0xa8, 0x8a, 0x4e, 0x98, 0x04, 0x66,
-	0x2f, 0x26, 0xd2, 0x3a, 0x53, 0x97, 0x61, 0xa6, 0xc1, 0xda, 0x3e, 0x93, 0x0a, 0x65, 0x60, 0xca,
-	0xe1, 0x37, 0xac, 0x97, 0x03, 0x7b, 0xe0, 0x60, 0xbb, 0x11, 0x7c, 0x98, 0xd7, 0x30, 0xb7, 0x28,
-	0x90, 0x9e, 0xe0, 0x92, 0xa1, 0x1a, 0xdc, 0x9a, 0xfe, 0xd3, 0xa2, 0x74, 0xa5, 0x80, 0x57, 0xf4,
-	0x87, 0x23, 0x83, 0x48, 0x66, 0xd2, 0x90, 0xa7, 0xe6, 0xba, 0xdf, 0x79, 0x4e, 0x21, 0x8c, 0xfb,
-	0x0a, 0xfd, 0xf7, 0x03, 0x7f, 0x89, 0x27, 0x43, 0xc0, 0xc1, 0x60, 0xc3, 0x21, 0xe0, 0x73, 0x1a,
-	0x69, 0x1b, 0x33, 0x4a, 0xf3, 0x19, 0x84, 0x2d, 0xcc, 0xd5, 0x58, 0xda, 0xc2, 0xc6, 0x3f, 0x5a,
-	0x40, 0xf5, 0x39, 0xce, 0xa4, 0xe6, 0x2c, 0xfe, 0xca, 0x19, 0xd4, 0x9f, 0x05, 0xad, 0x8c, 0x93,
-	0x30, 0xa5, 0x41, 0xd1, 0x2b, 0x88, 0xb1, 0xd0, 0xf1, 0x4a, 0xa0, 0x1f, 0xb6, 0x99, 0xaf, 0xfe,
-	0x51, 0x15, 0xf0, 0x98, 0xd5, 0x87, 0xf7, 0xf1, 0x53, 0x92, 0xa0, 0x12, 0x89, 0xe4, 0x64, 0xe1,
-	0x2e, 0xc5, 0xc1, 0x9d, 0xbe, 0x24, 0xf7, 0xe8, 0x05, 0xc0, 0xf4, 0xd4, 0xab, 0xe6, 0xba, 0xeb,
-	0x30, 0x2f, 0x6e, 0x7c, 0x1d, 0xe6, 0x25, 0x3b, 0x34, 0x4b, 0x9a, 0xb9, 0x88, 0x0a, 0x6b, 0x31,
-	0x9f, 0x9c, 0xbd, 0x0d, 0x0d, 0x30, 0x18, 0x1a, 0xe0, 0x73, 0x68, 0x80, 0xc7, 0x91, 0x91, 0x18,
-	0x8c, 0x8c, 0xc4, 0xc7, 0xc8, 0x48, 0x5c, 0x61, 0xdb, 0x51, 0xb7, 0xbe, 0x85, 0x9b, 0xa2, 0xb5,
-	0xcc, 0xaa, 0x17, 0x87, 0xaa, 0xef, 0x31, 0x69, 0x6d, 0xea, 0x37, 0x75, 0xf4, 0x15, 0x00, 0x00,
-	0xff, 0xff, 0xb9, 0x67, 0x37, 0xe3, 0xeb, 0x03, 0x00, 0x00,
+	// 525 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x41, 0x6b, 0x13, 0x41,
+	0x14, 0xc7, 0x33, 0x2d, 0x29, 0x76, 0x7a, 0x1b, 0x5a, 0x5b, 0xa2, 0x2c, 0xb2, 0x25, 0x56, 0x2c,
+	0x99, 0xa1, 0x49, 0x7b, 0xf2, 0x14, 0x05, 0xeb, 0x51, 0x23, 0x5e, 0x04, 0x91, 0x49, 0x1c, 0xd6,
+	0x85, 0xcd, 0xcc, 0xb6, 0x33, 0x29, 0x2d, 0xe2, 0xc5, 0x4f, 0x20, 0x78, 0x17, 0xbc, 0x14, 0xbc,
+	0x08, 0x7e, 0x0b, 0x8f, 0x05, 0x2f, 0x1e, 0x25, 0xf1, 0x83, 0x48, 0x66, 0xde, 0x4e, 0x9a, 0x64,
+	0xd9, 0x6e, 0x4a, 0x6f, 0x93, 0xd9, 0xf9, 0xff, 0xdf, 0xef, 0xfd, 0x67, 0x1e, 0xc1, 0xeb, 0xba,
+	0xc7, 0x4f, 0x84, 0x8c, 0x04, 0x3b, 0x1a, 0x88, 0xe3, 0x33, 0x9a, 0x1e, 0x2b, 0xa3, 0xc8, 0x9d,
+	0x9e, 0xd2, 0x7d, 0x25, 0xf9, 0xc0, 0xd0, 0xec, 0xbb, 0x5f, 0xd4, 0xee, 0x46, 0x4a, 0x45, 0x89,
+	0x60, 0x3c, 0x8d, 0x19, 0x97, 0x52, 0x19, 0x6e, 0x62, 0x25, 0xb5, 0x93, 0xd6, 0x1e, 0x5a, 0xa9,
+	0x66, 0x5d, 0xae, 0xc1, 0x93, 0x9d, 0xec, 0x75, 0x85, 0xe1, 0x7b, 0x2c, 0xe5, 0x51, 0x2c, 0xed,
+	0x61, 0x38, 0xbb, 0xe1, 0x8b, 0xf7, 0x54, 0xbf, 0x1f, 0x1b, 0xd8, 0xde, 0xf4, 0xdb, 0xbe, 0xb8,
+	0xfd, 0x10, 0x36, 0xf0, 0xc6, 0x8b, 0xb1, 0xe3, 0xa1, 0x30, 0x4f, 0xac, 0xa0, 0x23, 0x8e, 0x06,
+	0x42, 0x1b, 0xb2, 0x8e, 0xab, 0xb1, 0x7c, 0x27, 0x4e, 0xb7, 0xd0, 0x3d, 0xf4, 0x60, 0xb5, 0xe3,
+	0x7e, 0x84, 0xaf, 0xf0, 0xed, 0xd9, 0xe3, 0x3a, 0x55, 0x52, 0x0b, 0xf2, 0x08, 0xaf, 0xb8, 0x1d,
+	0x2b, 0x58, 0x6b, 0x6e, 0xd3, 0x82, 0x86, 0x29, 0x88, 0x41, 0x12, 0xbe, 0x05, 0x8a, 0x76, 0x92,
+	0x4c, 0x53, 0x3c, 0xc5, 0x78, 0xd2, 0x22, 0x38, 0xdf, 0x77, 0xce, 0x9a, 0x8e, 0xf3, 0xa0, 0x2e,
+	0x63, 0xc8, 0x83, 0x3e, 0xe7, 0x91, 0x00, 0x6d, 0xe7, 0x92, 0x32, 0xfc, 0x8a, 0x00, 0xfc, 0x52,
+	0x85, 0x1c, 0xf0, 0xe5, 0x05, 0xc1, 0xc9, 0xe1, 0x14, 0xdf, 0x92, 0xe5, 0xdb, 0xb9, 0x92, 0xcf,
+	0x55, 0x9e, 0x02, 0x64, 0x78, 0x33, 0x0b, 0xf6, 0x25, 0xd4, 0x2a, 0xbe, 0x89, 0x37, 0x78, 0x6b,
+	0x5e, 0x00, 0x2d, 0xb5, 0xf1, 0xad, 0x6c, 0x0f, 0x32, 0xab, 0x17, 0x36, 0xe5, 0x0d, 0xbc, 0x2c,
+	0xe4, 0xc0, 0xd3, 0x4e, 0x92, 0x59, 0x9e, 0x9b, 0xba, 0x93, 0x73, 0x04, 0x2d, 0x4c, 0xd5, 0xc8,
+	0x6d, 0x61, 0xf9, 0x1a, 0x2d, 0xdc, 0xd8, 0xdd, 0x34, 0x7f, 0x56, 0x71, 0xd5, 0x82, 0x92, 0x73,
+	0x94, 0x3d, 0x16, 0xd2, 0x2c, 0xc4, 0xc9, 0x9d, 0xa9, 0x5a, 0x6b, 0x21, 0x8d, 0x23, 0x09, 0x5b,
+	0x9f, 0x7e, 0xff, 0xfb, 0xb2, 0xd4, 0x20, 0xbb, 0xcc, 0x8b, 0xd9, 0xdc, 0x34, 0xc3, 0xb4, 0xb3,
+	0x0f, 0xf6, 0x71, 0x7c, 0x24, 0xdf, 0x10, 0x5e, 0x75, 0x3e, 0xed, 0x24, 0x29, 0xc3, 0x3a, 0x3b,
+	0x79, 0x65, 0x58, 0xe7, 0x66, 0x29, 0xdc, 0xb5, 0xac, 0x75, 0xb2, 0x5d, 0x82, 0x95, 0xfc, 0x40,
+	0x93, 0x3b, 0x26, 0xfb, 0xa5, 0xa2, 0x99, 0x79, 0x8a, 0xb5, 0x83, 0x05, 0x55, 0x80, 0x79, 0x60,
+	0x31, 0x19, 0x69, 0x14, 0x62, 0xfa, 0x45, 0x16, 0xea, 0x77, 0x84, 0xd7, 0x32, 0xaf, 0x71, 0xac,
+	0xfb, 0xa5, 0x22, 0xba, 0x06, 0x73, 0xce, 0x40, 0x84, 0x0d, 0xcb, 0xbc, 0x43, 0xea, 0xa5, 0x98,
+	0x1f, 0x3f, 0xfb, 0x35, 0x0c, 0xd0, 0xc5, 0x30, 0x40, 0x7f, 0x87, 0x01, 0xfa, 0x3c, 0x0a, 0x2a,
+	0x17, 0xa3, 0xa0, 0xf2, 0x67, 0x14, 0x54, 0x5e, 0xd3, 0x28, 0x36, 0xef, 0x07, 0x5d, 0xda, 0x53,
+	0xfd, 0x3c, 0xab, 0xd3, 0xc9, 0xd2, 0x9c, 0xa5, 0x42, 0x77, 0x57, 0xec, 0x1f, 0x45, 0xeb, 0x7f,
+	0x00, 0x00, 0x00, 0xff, 0xff, 0x80, 0x67, 0x88, 0x1d, 0xd7, 0x06, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -264,6 +460,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
+	// Queries a commit by index.
+	Commit(ctx context.Context, in *QueryGetCommitRequest, opts ...grpc.CallOption) (*QueryGetCommitResponse, error)
+	// Queries a list of commit items.
+	CommitAll(ctx context.Context, in *QueryAllCommitRequest, opts ...grpc.CallOption) (*QueryAllCommitResponse, error)
 	// Queries a scavenge by index.
 	Scavenge(ctx context.Context, in *QueryGetScavengeRequest, opts ...grpc.CallOption) (*QueryGetScavengeResponse, error)
 	// Queries a list of scavenge items.
@@ -276,6 +476,24 @@ type queryClient struct {
 
 func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 	return &queryClient{cc}
+}
+
+func (c *queryClient) Commit(ctx context.Context, in *QueryGetCommitRequest, opts ...grpc.CallOption) (*QueryGetCommitResponse, error) {
+	out := new(QueryGetCommitResponse)
+	err := c.cc.Invoke(ctx, "/cosmonaut.scavenge.scavenge.Query/Commit", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) CommitAll(ctx context.Context, in *QueryAllCommitRequest, opts ...grpc.CallOption) (*QueryAllCommitResponse, error) {
+	out := new(QueryAllCommitResponse)
+	err := c.cc.Invoke(ctx, "/cosmonaut.scavenge.scavenge.Query/CommitAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *queryClient) Scavenge(ctx context.Context, in *QueryGetScavengeRequest, opts ...grpc.CallOption) (*QueryGetScavengeResponse, error) {
@@ -298,6 +516,10 @@ func (c *queryClient) ScavengeAll(ctx context.Context, in *QueryAllScavengeReque
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
+	// Queries a commit by index.
+	Commit(context.Context, *QueryGetCommitRequest) (*QueryGetCommitResponse, error)
+	// Queries a list of commit items.
+	CommitAll(context.Context, *QueryAllCommitRequest) (*QueryAllCommitResponse, error)
 	// Queries a scavenge by index.
 	Scavenge(context.Context, *QueryGetScavengeRequest) (*QueryGetScavengeResponse, error)
 	// Queries a list of scavenge items.
@@ -308,6 +530,12 @@ type QueryServer interface {
 type UnimplementedQueryServer struct {
 }
 
+func (*UnimplementedQueryServer) Commit(ctx context.Context, req *QueryGetCommitRequest) (*QueryGetCommitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Commit not implemented")
+}
+func (*UnimplementedQueryServer) CommitAll(ctx context.Context, req *QueryAllCommitRequest) (*QueryAllCommitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CommitAll not implemented")
+}
 func (*UnimplementedQueryServer) Scavenge(ctx context.Context, req *QueryGetScavengeRequest) (*QueryGetScavengeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Scavenge not implemented")
 }
@@ -317,6 +545,42 @@ func (*UnimplementedQueryServer) ScavengeAll(ctx context.Context, req *QueryAllS
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
 	s.RegisterService(&_Query_serviceDesc, srv)
+}
+
+func _Query_Commit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetCommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Commit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmonaut.scavenge.scavenge.Query/Commit",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Commit(ctx, req.(*QueryGetCommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_CommitAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllCommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).CommitAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmonaut.scavenge.scavenge.Query/CommitAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).CommitAll(ctx, req.(*QueryAllCommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Query_Scavenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -360,6 +624,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "Commit",
+			Handler:    _Query_Commit_Handler,
+		},
+		{
+			MethodName: "CommitAll",
+			Handler:    _Query_CommitAll_Handler,
+		},
+		{
 			MethodName: "Scavenge",
 			Handler:    _Query_Scavenge_Handler,
 		},
@@ -370,6 +642,155 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "scavenge/query.proto",
+}
+
+func (m *QueryGetCommitRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetCommitRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetCommitRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Index) > 0 {
+		i -= len(m.Index)
+		copy(dAtA[i:], m.Index)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Index)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetCommitResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetCommitResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetCommitResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Commit != nil {
+		{
+			size, err := m.Commit.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllCommitRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllCommitRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllCommitRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllCommitResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllCommitResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllCommitResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Commit) > 0 {
+		for iNdEx := len(m.Commit) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Commit[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *QueryGetScavengeRequest) Marshal() (dAtA []byte, err error) {
@@ -532,6 +953,64 @@ func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
+func (m *QueryGetCommitRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Index)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetCommitResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Commit != nil {
+		l = m.Commit.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllCommitRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllCommitResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Commit) > 0 {
+		for _, e := range m.Commit {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
 func (m *QueryGetScavengeRequest) Size() (n int) {
 	if m == nil {
 		return 0
@@ -595,6 +1074,380 @@ func sovQuery(x uint64) (n int) {
 }
 func sozQuery(x uint64) (n int) {
 	return sovQuery(uint64((x << 1) ^ uint64((int64(x) >> 63))))
+}
+func (m *QueryGetCommitRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetCommitRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetCommitRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Index = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetCommitResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetCommitResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetCommitResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Commit", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Commit == nil {
+				m.Commit = &Commit{}
+			}
+			if err := m.Commit.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllCommitRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllCommitRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllCommitRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllCommitResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllCommitResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllCommitResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Commit", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Commit = append(m.Commit, &Commit{})
+			if err := m.Commit[len(m.Commit)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
 }
 func (m *QueryGetScavengeRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)

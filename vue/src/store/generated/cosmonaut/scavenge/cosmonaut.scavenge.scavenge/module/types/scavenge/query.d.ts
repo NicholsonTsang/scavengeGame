@@ -1,8 +1,22 @@
 import { Reader, Writer } from 'protobufjs/minimal';
-import { Scavenge } from '../scavenge/scavenge';
+import { Commit } from '../scavenge/commit';
 import { PageRequest, PageResponse } from '../cosmos/base/query/v1beta1/pagination';
+import { Scavenge } from '../scavenge/scavenge';
 export declare const protobufPackage = "cosmonaut.scavenge.scavenge";
 /** this line is used by starport scaffolding # 3 */
+export interface QueryGetCommitRequest {
+    index: string;
+}
+export interface QueryGetCommitResponse {
+    Commit: Commit | undefined;
+}
+export interface QueryAllCommitRequest {
+    pagination: PageRequest | undefined;
+}
+export interface QueryAllCommitResponse {
+    Commit: Commit[];
+    pagination: PageResponse | undefined;
+}
 export interface QueryGetScavengeRequest {
     index: string;
 }
@@ -16,6 +30,34 @@ export interface QueryAllScavengeResponse {
     Scavenge: Scavenge[];
     pagination: PageResponse | undefined;
 }
+export declare const QueryGetCommitRequest: {
+    encode(message: QueryGetCommitRequest, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): QueryGetCommitRequest;
+    fromJSON(object: any): QueryGetCommitRequest;
+    toJSON(message: QueryGetCommitRequest): unknown;
+    fromPartial(object: DeepPartial<QueryGetCommitRequest>): QueryGetCommitRequest;
+};
+export declare const QueryGetCommitResponse: {
+    encode(message: QueryGetCommitResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): QueryGetCommitResponse;
+    fromJSON(object: any): QueryGetCommitResponse;
+    toJSON(message: QueryGetCommitResponse): unknown;
+    fromPartial(object: DeepPartial<QueryGetCommitResponse>): QueryGetCommitResponse;
+};
+export declare const QueryAllCommitRequest: {
+    encode(message: QueryAllCommitRequest, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): QueryAllCommitRequest;
+    fromJSON(object: any): QueryAllCommitRequest;
+    toJSON(message: QueryAllCommitRequest): unknown;
+    fromPartial(object: DeepPartial<QueryAllCommitRequest>): QueryAllCommitRequest;
+};
+export declare const QueryAllCommitResponse: {
+    encode(message: QueryAllCommitResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): QueryAllCommitResponse;
+    fromJSON(object: any): QueryAllCommitResponse;
+    toJSON(message: QueryAllCommitResponse): unknown;
+    fromPartial(object: DeepPartial<QueryAllCommitResponse>): QueryAllCommitResponse;
+};
 export declare const QueryGetScavengeRequest: {
     encode(message: QueryGetScavengeRequest, writer?: Writer): Writer;
     decode(input: Reader | Uint8Array, length?: number): QueryGetScavengeRequest;
@@ -46,6 +88,10 @@ export declare const QueryAllScavengeResponse: {
 };
 /** Query defines the gRPC querier service. */
 export interface Query {
+    /** Queries a commit by index. */
+    Commit(request: QueryGetCommitRequest): Promise<QueryGetCommitResponse>;
+    /** Queries a list of commit items. */
+    CommitAll(request: QueryAllCommitRequest): Promise<QueryAllCommitResponse>;
     /** Queries a scavenge by index. */
     Scavenge(request: QueryGetScavengeRequest): Promise<QueryGetScavengeResponse>;
     /** Queries a list of scavenge items. */
@@ -54,6 +100,8 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
+    Commit(request: QueryGetCommitRequest): Promise<QueryGetCommitResponse>;
+    CommitAll(request: QueryAllCommitRequest): Promise<QueryAllCommitResponse>;
     Scavenge(request: QueryGetScavengeRequest): Promise<QueryGetScavengeResponse>;
     ScavengeAll(request: QueryAllScavengeRequest): Promise<QueryAllScavengeResponse>;
 }
