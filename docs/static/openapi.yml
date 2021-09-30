@@ -19105,6 +19105,8 @@ paths:
 definitions:
   cosmonaut.scavenge.scavenge.MsgCommitSolutionResponse:
     type: object
+  cosmonaut.scavenge.scavenge.MsgRevealSolutionResponse:
+    type: object
   cosmonaut.scavenge.scavenge.MsgSubmitScavengeResponse:
     type: object
   google.protobuf.Any:
