@@ -1,6 +1,13 @@
 import { Reader, Writer } from 'protobufjs/minimal';
 export declare const protobufPackage = "cosmonaut.scavenge.scavenge";
 /** this line is used by starport scaffolding # proto/tx/message */
+export interface MsgCommitSolution {
+    creator: string;
+    solutionHash: string;
+    solutionScavengerHash: string;
+}
+export interface MsgCommitSolutionResponse {
+}
 export interface MsgSubmitScavenge {
     creator: string;
     solutionHash: string;
@@ -9,6 +16,20 @@ export interface MsgSubmitScavenge {
 }
 export interface MsgSubmitScavengeResponse {
 }
+export declare const MsgCommitSolution: {
+    encode(message: MsgCommitSolution, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgCommitSolution;
+    fromJSON(object: any): MsgCommitSolution;
+    toJSON(message: MsgCommitSolution): unknown;
+    fromPartial(object: DeepPartial<MsgCommitSolution>): MsgCommitSolution;
+};
+export declare const MsgCommitSolutionResponse: {
+    encode(_: MsgCommitSolutionResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgCommitSolutionResponse;
+    fromJSON(_: any): MsgCommitSolutionResponse;
+    toJSON(_: MsgCommitSolutionResponse): unknown;
+    fromPartial(_: DeepPartial<MsgCommitSolutionResponse>): MsgCommitSolutionResponse;
+};
 export declare const MsgSubmitScavenge: {
     encode(message: MsgSubmitScavenge, writer?: Writer): Writer;
     decode(input: Reader | Uint8Array, length?: number): MsgSubmitScavenge;
@@ -26,11 +47,13 @@ export declare const MsgSubmitScavengeResponse: {
 /** Msg defines the Msg service. */
 export interface Msg {
     /** this line is used by starport scaffolding # proto/tx/rpc */
+    CommitSolution(request: MsgCommitSolution): Promise<MsgCommitSolutionResponse>;
     SubmitScavenge(request: MsgSubmitScavenge): Promise<MsgSubmitScavengeResponse>;
 }
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
+    CommitSolution(request: MsgCommitSolution): Promise<MsgCommitSolutionResponse>;
     SubmitScavenge(request: MsgSubmitScavenge): Promise<MsgSubmitScavengeResponse>;
 }
 interface Rpc {
