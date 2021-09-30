@@ -1,6 +1,8 @@
 package cli
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"github.com/spf13/cobra"
 	"strconv"
 
@@ -14,23 +16,26 @@ var _ = strconv.Itoa(0)
 
 func CmdSubmitScavenge() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "submit-scavenge [solutionHash] [description] [reward]",
+		Use:   "submit-scavenge [solution] [description] [reward]",
 		Short: "Broadcast message submit-scavenge",
 		Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			argsSolutionHash := string(args[0])
-			argsDescription := string(args[1])
-			argsReward := string(args[2])
-
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
-
-			msg := types.NewMsgSubmitScavenge(clientCtx.GetFromAddress().String(), string(argsSolutionHash), string(argsDescription), string(argsReward))
+			// find a hash of the solution
+			solutionHash := sha256.Sum256([]byte(args[0]))
+			// convert the hash to string
+			solutionHashString := hex.EncodeToString(solutionHash[:])
+			argsDescription := string(args[1])
+			argsReward := string(args[2])
+			// submit a new message
+			msg := types.NewMsgSubmitScavenge(clientCtx.GetFromAddress().String(), string(solutionHashString), string(argsDescription), string(argsReward))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
+			// broadcast the transaction with the message to the blockchain
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
 		},
 	}
