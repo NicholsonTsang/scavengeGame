@@ -134,4 +134,36 @@ export class HttpClient {
  * @version version not set
  */
 export class Api extends HttpClient {
+    constructor() {
+        super(...arguments);
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryScavengeAll
+         * @summary Queries a list of scavenge items.
+         * @request GET:/cosmonaut/scavenge/scavenge/scavenge
+         */
+        this.queryScavengeAll = (query, params = {}) => this.request({
+            path: `/cosmonaut/scavenge/scavenge/scavenge`,
+            method: "GET",
+            query: query,
+            format: "json",
+            ...params,
+        });
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryScavenge
+         * @summary Queries a scavenge by index.
+         * @request GET:/cosmonaut/scavenge/scavenge/scavenge/{index}
+         */
+        this.queryScavenge = (index, params = {}) => this.request({
+            path: `/cosmonaut/scavenge/scavenge/scavenge/${index}`,
+            method: "GET",
+            format: "json",
+            ...params,
+        });
+    }
 }
